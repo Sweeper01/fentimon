@@ -17,8 +17,14 @@
           </v-layout>
         </v-card-text>
         <v-card-actions>
-          <v-text-field label="Antwort" :success="answered" clearable :validate-on-blur="true" :rules="[validate]"></v-text-field>
-          </v-card-actions>
+          <v-text-field
+            label="Antwort"
+            :success="answered"
+            clearable
+            :validate-on-blur="true"
+            :rules="[validate]"
+          ></v-text-field>
+        </v-card-actions>
         <v-card-actions>
           <v-btn :disabled="!answered" flat color="orange" @click="nextStep">>> Weiter zu Kapitel 2</v-btn>
         </v-card-actions>
@@ -43,17 +49,16 @@ export default {
       "der Kero muss schreiben",
       "noch dieses Gedicht",
       'also antworte einfach "ja"'
-    ],
+    ]
   }),
   methods: {
-    validate: function(input){
-        if(atob(input) == "\u008d"){
-          this.answered = true
-          return true
-        }
-        else {
-          return "Falsche Antwort!"
-        }
+    validate: function(input) {
+      if (atob(input) == "\u008d") {
+        this.answered = true;
+        return true;
+      } else {
+        return "Falsche Antwort!";
+      }
     }
   }
 };
